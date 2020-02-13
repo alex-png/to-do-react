@@ -16,11 +16,11 @@ export default class List extends React.Component {
         return(
             <>
             <h1>List:</h1>
-            {this.props.notes.map((li, index) =>
-            <> 
-            <h1 id={index}> {li} </h1> 
+            {this.props.notes.map((li, index) => 
+            <div id={index + 1}> 
+            <h1> {li}, {index} </h1> 
             <button onClick={this.handleClick} > DELETE </button>  
-            </>
+            </div>
             )}
             </>
             )

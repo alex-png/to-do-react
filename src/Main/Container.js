@@ -4,24 +4,32 @@ import List from './List'
 export default class Container extends React.Component {
 
     state = {
-        notes: []
+        notes: [],
+        textValue: ""
     }
+
+
 
     deleteElement = (id) => {
         let newNotes = this.state.notes
         newNotes.splice(id, 1)
-        console.log(newNotes)
         this.setState({notes: [...newNotes]})
+    }
+    
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name] : e.target.value
+        })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log("ON SUBMIT WORKS!!")
-        console.dir(e.target)
         let val = e.target.firstChild.value
         // debugger
         this.setState(prevState => ({
-            notes: [...prevState.notes, val]
+            notes: [...prevState.notes, val],
+            value: ""
         }))
     }
 
@@ -30,7 +38,7 @@ export default class Container extends React.Component {
             <div style={{display: "flex", justifyContent: "center", alignItems: "center", margin:"2em", flexDirection: "column"}} >
             <h1>To Do</h1>
             <form onSubmit={this.handleSubmit}>
-            <textarea> </textarea>
+            <textarea name= "textValue" value={this.state.textValue} onChange={this.handleChange}> </textarea>
             <br/>
             <input type="submit" />
 

@@ -5,9 +5,6 @@ export default class List extends React.Component {
 
     handleClick = (e) => {
         e.preventDefault()
-        console.log("DELETE!!!!")
-        console.log(e.target)
-        debugger
         this.props.deleteElement(e.target.previousElementSibling.id)
     }
 
@@ -18,7 +15,7 @@ export default class List extends React.Component {
             <h1>List:</h1>
             {this.props.notes.map((li, index) => 
             <div id={index + 1}> 
-            <h1> {li}, {index} </h1> 
+            <h1> {li} </h1> 
             <button onClick={this.handleClick} > DELETE </button>  
             </div>
             )}

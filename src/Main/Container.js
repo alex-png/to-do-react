@@ -29,7 +29,7 @@ export default class Container extends React.Component {
         // debugger
         this.setState(prevState => ({
             notes: [...prevState.notes, val],
-            value: ""
+            textValue: ""
         }))
     }
 
@@ -47,4 +47,11 @@ export default class Container extends React.Component {
             </div>
         )
     }
+
+    componentDidMount(){
+        fetch(`http://localhost:3000/${this.props.user.name}/notes`)
+        .then(res => res.json())
+        .then(console.log)
+    }
+
 }

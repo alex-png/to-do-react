@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   render() {
-  return (this.state.loggedIn ? <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems: "center"}}> <h1>Welcome, {this.state.user.name}!</h1>  <Container /></div>
+  return (this.state.loggedIn ? <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems: "center"}}> <h1>Welcome, {this.state.user.name}!</h1>  <Container user={this.state.user}/></div>
     :
     <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection:"column"}}> 
     <LogIn logInOrSignUp={this.logInOrSignUp} /> 
